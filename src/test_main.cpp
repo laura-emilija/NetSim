@@ -16,6 +16,7 @@ TEST(networkTest, initialize) {
     EXPECT_GT(var, 10);
 }
 
+
 TEST(networkTest, connect) {
     bool trylink = net.add_link(0,0);
     EXPECT_FALSE(trylink);
@@ -23,14 +24,14 @@ TEST(networkTest, connect) {
     EXPECT_FALSE(trylink);
     trylink = net.add_link(9,10);
     EXPECT_TRUE(trylink);
-    EXPECT_EQ(net.degree(9)+net.degree(10), 2);    
+    EXPECT_EQ(net.degree(9)+net.degree(10), 2);
     trylink = net.add_link(9,8);
     trylink = net.add_link(1,9);
     std::vector<size_t> ngb = net.neighbors(9);
     EXPECT_EQ(ngb.size(), 3);
     EXPECT_TRUE(ngb[0]==10 && ngb[1]==8 && ngb[2]==1);
     double numlink = 0;
-    for (int rep=0; rep<100; rep++) 
+    for (int rep=0; rep<100; rep++)
       numlink += 0.01*net.random_connect(2);
     EXPECT_NEAR(numlink, 200, 15);
 }
