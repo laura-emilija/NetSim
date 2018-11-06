@@ -56,6 +56,10 @@ private:
     std::vector<double> values;
     std::multimap<size_t, size_t> links;
 
+
+    inline void check_value(const size_t & n) const;
+
+
 };
 
 
