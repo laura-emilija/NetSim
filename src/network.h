@@ -56,7 +56,7 @@ private:
     std::vector<double> values;
     std::multimap<size_t, size_t> links;
 
-
+    /*! Check that the value and node *n* exist */
     inline void check_value(const size_t & n) const;
 
 
